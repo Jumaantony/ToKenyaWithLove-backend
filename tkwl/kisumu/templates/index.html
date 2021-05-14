@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load kisumu_tags %}
 {%block title%} To Kenya With Love {% endblock %}
 
 {% block content%}
@@ -117,47 +118,7 @@
 
             <div class="row justify-content-center">
 
-              <div class="col-md-4 mb-3">
-                <div class="card">
-                  <img src="{% static 'images/causes.jpg' %}" class="card-img-top causes-img" alt="cause-img">
-                  <div class="card-body">
-                    <h4 class="card-title text-capitalize font-weight-bold">School Fees</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    </p>
-                    <a href="#" class="btn btn-success">READ MORE</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4 mb-3">
-                <div class="card">
-                  <img src="{% static 'images/causes1.jpg' %}" class="card-img-top causes-img" alt="cause-img">
-                  <div class="card-body">
-                    <h4 class="card-title text-capitalize font-weight-bold">School Fees</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    </p>
-                    <a href="#" class="btn btn-success">READ MORE</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4 mb-3">
-                <div class="card">
-                  <img src="{% static 'images/causes2.jpg' %}" class="card-img-top causes-img" alt="cause-img">
-                  <div class="card-body">
-                    <h4 class="card-title text-capitalize font-weight-bold">School Fees</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    </p>
-                    <a href="#" class="btn btn-success">READ MORE</a>
-                  </div>
-                </div>
-              </div>
+            {% recent_cause 3 %}
 
             </div>
 
@@ -179,39 +140,7 @@
 
             <div class="row justify-content-center news ml-1">
 
-                <div class="col-md-4 mb-3 pt-3 news-inf">
-                  <div class="card">
-                    <img src="{% static 'images/about-us.jpg' %}" class="card-img-top causes-img" alt="cause-img">
-                    <div class="card-body">
-                      <h4 class="card-title text-capitalize font-weight-bold">School Fees</h4>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-                      <a href="blogdetail.html" class="btn btn-success">READ MORE</a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-4 mb-3 pt-3 news-inf">
-                  <div class="card">
-                    <img src="{% static 'images/construction.jpg' %}" class="card-img-top causes-img" alt="cause-img">
-                    <div class="card-body">
-                      <h4 class="card-title text-capitalize font-weight-bold">School Fees</h4>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-                      <a href="blogdetail.html" class="btn btn-success">READ MORE</a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-4 mb-3 pt-3 news-inf">
-                  <div class="card">
-                    <img src="{% static 'images/imag.jpg' %}" class="card-img-top causes-img" alt="cause-img">
-                    <div class="card-body">
-                      <h4 class="card-title text-capitalize font-weight-bold">School Fees</h4>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-                      <a href="blogdetail.html" class="btn btn-success">READ MORE</a>
-                    </div>
-                  </div>
-                </div>
-
+                {% recent_posts 3 %}
 
             </div>
 

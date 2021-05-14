@@ -15,3 +15,15 @@ def show_latest_posts(count=5):
 def show_popular_causes(count=5):
     popular_causes = Cause.objects.filter(status='publish').order_by('-publish')[:count]
     return {'popular_causes': popular_causes}
+
+
+@register.inclusion_tag('recent_posts.html')
+def recent_posts(count=3):
+    most_recent_post = BlogPost.published.order_by('-publish')[:count]
+    return {'most_recent_post': most_recent_post}
+
+
+@register.inclusion_tag('most_popular_causes.html')
+def recent_cause(count=3):
+    most_recent_cause = Cause.objects.filter(status='publish').order_by('-publish')[:count]
+    return {'most_recent_cause': most_recent_cause}

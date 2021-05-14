@@ -1,0 +1,18 @@
+{% load static %}
+      <!-- font awesome -->
+      <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome/css/font-awesome.min.css' %}">
+
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    {% for cause in most_recent_cause %}
+                <div class="col-md-4 mb-3 pt-3 news-inf">
+                  <div class="card">
+                    <img src="{{ cause.cause_image.url  }}" class="card-img-top causes-img" alt="cause-img">
+                    <div class="card-body">
+                      <h4 class="card-title text-capitalize font-weight-bold">{{ cause.title }}</h4>
+                      <p class="card-text">{{ cause.content | safe | truncatewords:30 | linebreaks }}</p>
+                      <a href="{% url 'kisumu:CauseDetail' cause.slug %}" class="btn btn-success">READ MORE</a>
+                    </div>
+                  </div>
+                </div>
+    {% endfor %}
