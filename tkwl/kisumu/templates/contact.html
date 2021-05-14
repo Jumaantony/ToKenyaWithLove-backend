@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{%block title%} Contact Us {% endblock %}
+
+{% block content%}
+
+ <!-- Contact Header -->
+
+    <div class="card bg-dark contact-header">
+      <div class="card-img-overlay">
+        <h1 class="card-title font-weight-bold text-center text-light pt-5 mt-5">Get In Touch With Us</h1>
+      </div>
+    </div>
+
+    <div class="container-xxl ">
+
+      <div class="mt-3 text-center">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8137014553936!2d34.78317551420115!3d-0.08718259993638541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182aa39b35bdeedd%3A0x6f886c58813fb964!2sManyatta%20A%2C%20Kisumu!5e0!3m2!1sen!2ske!4v1600902235819!5m2!1sen!2ske" frameborder="0" style="border:2px solid green;" allowfullscreen="" aria-hidden="false" tabindex="0" class="rounded map"></iframe>
+      </div>
+
+          <div class="row mt-3 contact-cont2">
+
+              <div class="col-sm-5">
+                  <div class="contct bg-success p-2 rounded height mb-sm-2">
+                    <h3 class="conct-title"> <i class="fa fa-address-card-o text-light" aria-hidden="true"></i> Address </h3>
+                      <h5>Kisumu, 40100, Kenya</h5><br>
+                    <h3 class="conct-title"> <i class="fa fa-phone text-light" aria-hidden="true"></i> Phone</h3>
+                      <h5>+254 742 4XXXXXXXX</h5><br>
+                    <h3 class="conct-title"> <i class="fa fa-envelope-o text-light" aria-hidden="true"></i> Email</h3>
+                      <h5>info@tkwlkisumu.com</h5>
+                  </div>
+              </div>
+
+              <div class="col-sm-5 ">
+
+                  <form method="Get|Post" class=" p-1">
+
+                    <h3 class="font-weight-bold">Get In Touch</h3>
+
+                    <input type="text" class="form-control mb-2 w-100" id="Name" placeholder="Your Name" required="">
+
+                    <input type="email" class="form-control mb-2 w-100" id="Email" aria-describedby="emailHelp" placeholder="Your Email" required="">
+
+                    <textarea name="comment" placeholder=" Your Message" class="form-control mb-2 w-100" id="Comment" required=""></textarea>
+
+                    <button type="Post" class="btn btn-success">Message</button>
+                  </form>
+
+              </div>
+
+          </div>
+
+    </div>
+
+
+{% endblock %}

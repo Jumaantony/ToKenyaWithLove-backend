@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+{%block title%} Popular Causes {% endblock %}
+
+{% block content%}
+
+<div class="card causes-header">
+      <div class="card-img-overlay">
+        <h1 class="card-title font-weight-bold text-light pt-5">Our Causes</h1>
+        <p class="card-text text-light"> A kind Gesture can Reach a wound that only compassion can heal</p>
+      </div>
+    </div>
+
+
+    <!-- Popular causes -->
+
+      <h1 class="text-center text-success font-weight-bold mt-4">Popular Causes</h1>
+
+      <div class="row justify-content-center container-xxl mt-3">
+  {% for cause in cause_list %}
+        <div class="col-md-6 col-lg-3 mb-3">
+          <div class="card">
+            <img src="{{ cause.cause_image.url }}" class="card-img-top causes-img" alt="cause-img">
+            <div class="card-body">
+              <h4 class="card-title text-capitalize font-weight-bold">
+                <a href="{% url 'kisumu:CauseDetail' cause.slug %}" class="text-decoration-none text-danger">
+                  {{ cause.title }}</a>
+              </h4>
+              <p class="card-text">
+                {{ cause.content | safe | linebreaks | truncatewords:20 }}
+              </p>
+              <a href="{% url 'kisumu:CauseDetail' cause.slug %}" class="btn btn-success">READ MORE</a>
+            </div>
+          </div>
+        </div>
+  {% endfor %}
+    </div>
+
+<!-- pagination -->
+      <div class="mx-auto" style="width: 200px;">
+    {% if is_paginated %}
+        <ul class="pagination pagination-lg">
+            <li class="page-item" aria-current="page">
+         {% if page_obj.has_previous %}
+              <a href="?page={{ page_obj.previous_page_number }}" class="text-decoration-none">
+                <span class="page-link bg-success font-weight-bold text-dark">
+                  Previous
+                </span>
+              </a>
+         {% endif%}
+            </li>
+         {% if page_obj.has_next %}
+            <li class="page-item">
+              <a class="page-link bg-success font-weight-bold text-dark" href="?page={{ page_obj.next_page_number}}">Next</a>
+            </li>
+         {% endif%}
+          </ul>
+    {% endif%}
+       </div>
+
+      <!-- Success Stories-->
+
+        <h1 class="text-center font-weight-bold text-success mt-3 mb-3">Success Stories</h1>
+
+        <div id="carouselExampleFade" class="carousel slide carousel-fade success-stories" data-ride="carousel">
+          <div class="carousel-inner container-xxl">
+
+            <div class="carousel-item active text-center">
+              <img src="{% static 'images/volunter.png' %}" class="img-fluid volunteer-img success-img mt-3 " alt="...">
+              <div class="success-info">
+                <h2 class="text-success font-weight-bold text-center">Juma Antony</h2>
+                <p class="text-light text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </div>
+            </div>
+
+            <div class="carousel-item text-center">
+              <img src="{% static 'images/causes.jpg' %}" class="img-fluid volunteer-img success-img mt-3" alt="...">
+              <div class="success-info">
+                <h2 class="text-success font-weight-bold text-center">Juma Antony</h2>
+                <p class="text-light text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </div>
+            </div>
+
+            <div class="carousel-item text-center">
+              <img src="{% static 'images/causes1.jpg' %}" class="img-fluid volunteer-img success-img mt-3" alt="...">
+              <div class="success-info">
+                <h2 class="text-success font-weight-bold text-center">Juma Antony</h2>
+                <p class="text-light text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </div>
+            </div>
+
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+{% endblock %}

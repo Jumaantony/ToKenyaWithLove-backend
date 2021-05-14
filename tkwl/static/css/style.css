@@ -1,0 +1,281 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    max-height: 100%vh;
+    width: 100%vh;
+}
+
+
+/** index page **/
+
+.index-header{
+	height: 50vh;
+	width: 100%;
+	background-image: url(../images/tkwl.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+
+}
+
+.two{
+	background-image: url(../images/sponsor.jpg);
+}
+
+.three{
+	background-image: url(../images/who-img.jpg);
+
+}
+
+a.nav-link{
+	color: black;
+	font-weight: bolder;
+	
+}
+
+
+.first-header{
+	color: red;
+	font-size: 5%vh;
+}
+
+.first-header-info{
+	font-weight: bolder;
+}
+
+.who-we-are, .card-title{
+	color: red;
+}
+.what-we-do, .causes{
+	color: green;
+}
+
+.help-div{
+	height: 500px;
+}
+
+.how-to-help{
+	color: red;
+}
+
+.help-title{
+	color: green;
+}
+
+.help-title:hover{
+	color: red;
+}
+
+.help-info{
+	text-align: justify;
+}
+
+.get-in-touch{
+	height: 40vh;
+	background-image: url(../images/sponsor.jpg);
+	background-size: cover;
+	color: white;
+	background-attachment: fixed;
+	background-blend-mode: color;
+	position: relative;
+}
+
+.get-in-touch::before{
+	content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(5, 4, 82, 0.5);
+
+}
+
+.donate{
+	position: relative;
+	
+}
+
+.btn-in-touch{
+	position: relative;
+}
+
+.news, .volunteers, footer{
+	height: auto;
+	background-image: url(../images/construction.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	background-blend-mode: color;
+	position: relative;
+}
+
+.news::before, footer::before .volunteers::before{
+	content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(5, 4, 82, 0.5);
+}
+
+footer{
+	background-image: url(../images/tkwl.jpg);
+}
+
+.foot-cont{
+	position: relative;
+}
+
+.foot-img{
+	height: 80px;
+	width: 80px;
+}
+
+.p-about{
+	position: relative;
+	color: white
+}
+
+.foot-title{
+	color: green;
+}
+
+.foot-sub{
+	color: white;
+}
+
+.foot-nav{
+	justify-content: center;
+}
+
+
+/** About page **/
+
+.about-header{
+	height: 40vh;
+	width: 100%;
+	background-image: url(../images/about.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+
+
+.aboutus-p{
+	text-align: justify;
+}
+
+.volunteers{
+	height: 250px;
+	padding-top: 50px;
+	background-image: url(../images/volunteer-bg.jpg);
+}
+
+.volunteer-img{
+	border-radius: 50%;
+	height: 150px;
+	width: 150px;
+}
+
+
+/* causes page */
+
+.causes-header{
+	height: 40vh;
+	width: : 100%;
+	background-image: url(../images/about-us.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+
+.success-img{
+	height: 150px;
+	width: 150px;
+}
+
+.success-stories{
+	background-image: url(../images/sunrise.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-blend-mode: ;
+}
+
+.success-stories::before{
+	content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(5, 4, 82, 0.2);
+}
+
+/* blog page */
+
+
+.blog-img{
+	width: 100%;
+}
+
+.blog-info{
+	text-align: justify;
+	margin-left: -6px;
+}
+
+.blog-more{
+	margin-left: -6px;
+}
+
+.thoughts{
+	background-color: #A5D6A7; 
+}
+
+.comment-body{
+	text-align: justify;
+	background-color: #A5D6A7;
+}
+
+.comment-form{
+	border: solid 2px green;
+}
+
+#Comment{
+	height: 150px;
+}
+
+/* contact page */
+
+.contact-header{
+	height: 50vh;
+	width: 100%;
+	background-image: url(../images/contact.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+
+.contct {
+	height: 330px;
+}
+
+.conct-title{
+	color: #1A237E;
+}
+
+
+.contact-cont2{
+	justify-content: center;
+}
+
+.map{
+	width: 90%;
+	height: 400px;
+	align-self: center;
+}

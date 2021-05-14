@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load static %}
+{%block title%}  About Us {% endblock %}
+
+{% block content%}
+<!-- header Image -->
+    <div class="card bg-dark about-header">
+      <div class="card-img-overlay">
+        <h1 class="card-title font-weight-bold text-center text-success pt-5">About US</h1>
+      </div>
+    </div>
+
+
+    <!-- About Info -->
+    <div class=" row container-xxl">
+      <div class="col-lg-6">
+        <h1 class="text-danger font-weight-bold mt-5 text ml-4">We Are a None Profit Organization</h1>
+        <p class="aboutus-p ml-2"> A Christian charity whose purpose is to provide a better future for children living in Kisumu, Kenya’s third largest city. We do this by providing an education, which otherwise they would not be able to afford, thus giving them a better chance of gaining employment and eliminating poverty. <br> <br> Our aim is to give our children an excellent, well-balanced, education within the school day, giving them time to play, be with their families and to be children. TKWL has its own nursery and primary school in the slum area of Manyatta. Most sponsored children attend our school, but some children are placed into government-run schools when it is too far for them to attend Simon Newberry School.</p>
+      </div>
+
+      <div class="col-lg-6 aboutUs">
+
+        <div class="embed-responsive embed-responsive-16by9 mt-5 mb-3 ml-2">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/H_9A6hhBLJI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="To Kenya With Love" allowfullscreen></iframe>
+        </div>
+
+      </div>
+
+
+      <div class="row container-xxl">
+        <p class="ml-2">
+          Alongside providing an excellent academic education, we also strive to ensure that the children are taught, encouraged and provided for in all aspects of their lives, including their physical, emotional, mental and spiritual health. As part of this the children are provided with a snack of porridge in the morning and a nutritious meal each lunchtime. <br> <br>
+
+          For many children, this is their only meal of the day. Simon Newberry School is not-profit making and needs external funding each month to continue. This is done through fundraising and sponsorship of children most in need, and this means that more than half of the pupils are sponsored. After leaving primary school, sponsored children continue to be supported through secondary or vocational training. <br> <br>
+
+          Our sponsors support children by providing them with the essentials needed for their education or vocational training. Sponsorship funds are used to help buy school uniforms, shoes, school books and equipment, pay various school fees and cover medical expenses when they are unwell. <br> <br>
+
+          We have an excellent team working within the school and surrounding areas. Chris Wheat is the missions coordinator for TKWL who oversees the staff, administrators and social workers. <br> <br>
+
+          TKWL has a Board of Trustees in the UK and in Kenya. The UK Trustees are: Phil and Diane Ball, Sally James Fry, Janet Newberry , Tess Molden and Steve Kidd. The treasurer is Chris Squires. The Kenya Trustees are: George McOmwanda, Janet Newberry, Elizabeth Odhiambo, John Ondeche, Bob Odhaimbo and Chris Wheat.
+        </p>
+      </div>
+    </div>
+
+    <h1 class="mt-5 text-center font-weight-bold how-to-help ">How Could You Help </h1>
+
+
+        <div class="row container-fluid">
+
+          <div class="col-md-6 col-lg-3 mb-3">
+           <div class="p-3 border bg-light">
+
+            <img src="{% static 'images/pray2.png' %}" class="img-fluid mx-auto d-block">
+            <h4 class="mt-2 text-center help-title">Pray Together</h4>
+            <p class="help-info">
+              Being a Christian Based Organization, prayer is key in changing people's lives. Put us together with our children and the community at large in your prayers.
+            </p>
+
+           </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 mb-3">
+            <div class="p-3 border bg-light">
+
+              <img src="{% static 'images/donate.png' %}" class="img-fluid mx-auto d-block">
+              <h4 class="mt-2 text-center help-title">Give Donation</h4>
+              <p class="help-info">We call upon well-wishers to and donors to help us meet some of our needs. Donations given help us support needy children as well as paying off staff memebers among other things </p>
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 mb-3">
+            <div class="p-3 border bg-light">
+
+              <img src="{% static 'images/hope.jpg' %}" class="img-fluid mx-auto d-block">
+              <h4 class="mt-2 text-center help-title">Give Hope</h4>
+              <p class="help-info">By providing an excellent education, which otherwise they would not be able to afford, we provide the children with hope for the future by giving them a better chance of gaining employment and eliminating poverty.</p>
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 mb-3">
+            <div class="p-3 border bg-light">
+
+              <img src="{% static 'images/volunteer.png' %}" class="img-fluid mx-auto d-block">
+              <h4 class="mt-2 text-center help-title">Be a Volunteer</h4>
+              <p class="help-info">In collaboration with our team, you can volunteer to give a hand in reaching out to our needy children, engaging in soci-economic activitism among others.</p>
+
+            </div>
+          </div>
+        </div>
+
+      <!-- Our volunteers-->
+
+
+        <h1 class="text-center font-weight-bold text-success mt-3 mb-3">Our Volunteers</h1>
+
+          <div id="carouselExampleCaptions" class="carousel slide container-fluid volunteers" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+
+              <div class="carousel-item active">
+                <img src="{% static 'images/volunter.png' %}" class="img-fluid volunteer-img" alt="...">
+                <div class="carousel-caption">
+                  <h2 class=" text-light font-weight-bold">Juma Antony</h2>
+                  <h5 class=" text-light">Web Developer</h5>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="{% static 'images/volunter.png' %}" class="img-fluid volunteer-img" alt="...">
+                <div class="carousel-caption">
+                  <h2 class=" text-light font-weight-bold"> Md. Sophie </h2>
+                  <h5 class=" text-light">Donor</h5>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="{% static 'images/volunter.png' %}" class="img-fluid volunteer-img" alt="...">
+                <div class="carousel-caption">
+                  <h2 class=" text-light font-weight-bold"> Mr. Chris Wheat </h2>
+                  <h5 class=" text-light">Volunteer</h5>
+                </div>
+              </div>
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+{% load static %}
+{%block title%} To Kenya With Love {% endblock %}
+
+{% block content%}
+
+<!-- header carousel -->
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active  index-header">
+          <div class="carousel-caption">
+            <h1 class="font-weight-bold first-header">TO KENYA WITH LOVE MINISTRIES</h1>
+            <h6>Offering Love, Hope and Support</h6>
+          </div>
+        </div>
+
+        <div class="carousel-item index-header two">
+          <div class="carousel-caption">
+            <h1 class="font-weight-bold first-header text-light">Help The Children When they Need</h1>
+            <h6>Pray, Donate, Volunteer, Give hope</h6>
+          </div>
+        </div>
+
+        <div class="carousel-item index-header three">
+          <div class="carousel-caption">
+            <h1 class="font-weight-bold first-header">Help the Children When they Need</h1>
+            <h6>Offering Love, Hope and Support</h6>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+<!-- header -->
+
+    <!-- Who we are -->
+    <div class="container-xxl row mt-3 mr-2">
+        <div class="col-sm-7 mb-3 ">
+            <h1 class="text-center who-we-are font-weight-bold">WHO WE ARE</h1>
+            <p class="jus">To Kenya With Love (TKWL) is a UK Christian charity that works to significantly transform the lives of children in Kisumu, the third largest city in Kenya, where levels of poverty are amongst the highest in the country.</p> <br>
+
+            <h2 class="what-we-do">WHAT WE DO</h2>
+            <br>
+            <h6>WE OFFER LOVE, SUPPORT AND CARE</h6>
+            <br>
+            Our child sponsorship programme enables us to provide each child with a comprehensive package of care, including quality education, food, clothing and medication. Many of our children have lost both parents and sponsorship helps to keep them with family members, rather than them end up in an orphanage or on the streets.
+
+            <br>
+            <br>
+            <button class="btn btn-lg btn-success"><a href="about.html" class="text-decoration-none text-light">FIND OUT MORE</a></button>
+        </div>
+
+        <div class="col-sm-5 mt-5">
+            <img src="{% static 'images/img.jpg' %}" class="img-fluid">
+        </div>
+
+        <h1 class="mt-5 text-center font-weight-bold how-to-help ">How Could You Help </h1>
+
+          <div class="row align-self-center">
+
+            <div class="col-md-6 col-lg-3 mb-3">
+             <div class="p-3 border bg-light">
+
+              <img src="{% static 'images/pray2.png' %}" class="img-fluid mx-auto d-block">
+              <h4 class="mt-2 text-center help-title">Pray Together</h4>
+              <p class="help-info">
+                Being a Christian Based Organization, prayer is key in changing people's lives. Put us together with our children and the community at large in your prayers.
+              </p>
+
+             </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-3">
+              <div class="p-3 border bg-light">
+
+                <img src="{% static 'images/donate.png' %}" class="img-fluid mx-auto d-block">
+                <h4 class="mt-2 text-center help-title">Give Donation</h4>
+                <p class="help-info">We call upon well-wishers to and donors to help us meet some of our needs. Donations given help us support needy children as well as paying off staff memebers among other things </p>
+
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-3">
+              <div class="p-3 border bg-light">
+
+                <img src="{% static 'images/hope.jpg' %}" class="img-fluid mx-auto d-block">
+                <h4 class="mt-2 text-center help-title">Give Hope</h4>
+                <p class="help-info">By providing an excellent education, which otherwise they would not be able to afford, we provide the children with hope for the future by giving them a better chance of gaining employment and eliminating poverty.</p>
+
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-3">
+              <div class="p-3 border bg-light">
+
+                <img src="{% static 'images/volunteer.png' %}" class="img-fluid mx-auto d-block">
+                <h4 class="mt-2 text-center help-title">Be a Volunteer</h4>
+                <p class="help-info">In collaboration with our team, you can volunteer to give a hand in reaching out to our needy children, engaging in soci-economic activitism among others.</p>
+
+              </div>
+            </div>
+          </div>
+
+
+          <!-- popular causes -->
+
+          <h1 class="text-center font-weight-bold mt-5 causes"> Popular Causes</h1>
+
+          <div class="container">
+
+            <div class="row justify-content-center">
+
+              <div class="col-md-4 mb-3">
+                <div class="card">
+                  <img src="{% static 'images/causes.jpg' %}" class="card-img-top causes-img" alt="cause-img">
+                  <div class="card-body">
+                    <h4 class="card-title text-capitalize font-weight-bold">School Fees</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    </p>
+                    <a href="#" class="btn btn-success">READ MORE</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <div class="card">
+                  <img src="{% static 'images/causes1.jpg' %}" class="card-img-top causes-img" alt="cause-img">
+                  <div class="card-body">
+                    <h4 class="card-title text-capitalize font-weight-bold">School Fees</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    </p>
+                    <a href="#" class="btn btn-success">READ MORE</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <div class="card">
+                  <img src="{% static 'images/causes2.jpg' %}" class="card-img-top causes-img" alt="cause-img">
+                  <div class="card-body">
+                    <h4 class="card-title text-capitalize font-weight-bold">School Fees</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    </p>
+                    <a href="#" class="btn btn-success">READ MORE</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Get In touch for donation -->
+
+              <div class="get-in-touch">
+                <h1 class="p-3 font-weight-bold text-uppercase donate text-center">Are u willing to donate?? <br> Get in touch with us.</h1 >
+
+                <center>
+                  <a href="{% url 'kisumu:contact' %}" class="btn btn-danger btn-lg btn-in-touch font-weight-bold text-center mt-1">GET IN TOUCH</a>
+                </center>
+              </div>
+
+
+
+            <!-- Recent Blog Posts-->
+
+            <h1 class="text-center font-weight-bold mt-4 mb-3">Recent Blog Posts</h1>
+
+            <div class="row justify-content-center news ml-1">
+
+                <div class="col-md-4 mb-3 pt-3 news-inf">
+                  <div class="card">
+                    <img src="{% static 'images/about-us.jpg' %}" class="card-img-top causes-img" alt="cause-img">
+                    <div class="card-body">
+                      <h4 class="card-title text-capitalize font-weight-bold">School Fees</h4>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+                      <a href="blogdetail.html" class="btn btn-success">READ MORE</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 mb-3 pt-3 news-inf">
+                  <div class="card">
+                    <img src="{% static 'images/construction.jpg' %}" class="card-img-top causes-img" alt="cause-img">
+                    <div class="card-body">
+                      <h4 class="card-title text-capitalize font-weight-bold">School Fees</h4>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+                      <a href="blogdetail.html" class="btn btn-success">READ MORE</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 mb-3 pt-3 news-inf">
+                  <div class="card">
+                    <img src="{% static 'images/imag.jpg' %}" class="card-img-top causes-img" alt="cause-img">
+                    <div class="card-body">
+                      <h4 class="card-title text-capitalize font-weight-bold">School Fees</h4>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+                      <a href="blogdetail.html" class="btn btn-success">READ MORE</a>
+                    </div>
+                  </div>
+                </div>
+
+
+            </div>
+
+          </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{%block title%} Detailed Causes {% endblock %}
+
+{% block content%}
+
+<!-- Causes Body -->
+
+    <div class="container mt-3">
+      <h1 class="font-weight-bold text-capitalize">{{ cause.title }}</h1>
+      <h6 class="text-muted text-sm font-italic"> {{ cause.publish }}</h6>
+
+      <div class="card " style="width: 100%;">
+
+        <div class="card-body">
+          <p class="card-text">
+            {{ cause.content | striptags | safe }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+      <!-- Donate -->
+
+     <!-- Get In touch for donation -->
+
+       <div class="get-in-touch mt-5">
+         <h1 class="p-3 font-weight-bold text-uppercase donate text-center">Are u willing to donate?? <br> Get in touch with us.</h1 >
+
+         <center>
+           <a href="{% url 'kisumu:contact' %}"
+              class="btn btn-danger btn-lg btn-in-touch font-weight-bold text-center mt-1">GET IN
+               TOUCH</a>
+         </center>
+       </div>
+
+{% endblock %}

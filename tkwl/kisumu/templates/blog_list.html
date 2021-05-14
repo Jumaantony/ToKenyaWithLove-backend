@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{%block title%} Blog Posts {% endblock %}
+
+{% block content%}
+
+<div class="container ">
+
+      <div class="row justify-content-center">
+
+      {% for post in posts %}
+
+        <div class="col-md-8 mt-2">
+          <div class="card border-0">
+            <img src="{{ post.blog_image.url }}" class="card-img rounded mx-auto d-block" alt="...">
+            <div class="card-body">
+              <a href="{{ post.get_absolute_url }}"
+                 class="text-decoration-none"><h2 class="card-title font-weight-bold text">{{ post.title }}</h2></a>
+              <p class="text-muted font-italic" > - {{ post.publish }}</p>
+              <p class="card-text blog-info"> {{ post.body | striptags| truncatewords:30 | linebreaks }}</p>
+              <a href="{{ post.get_absolute_url }}" class="btn btn-success blog-more font-weight-bold">READ MORE</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+
+        <nav aria-label="Page navigation example" class="col-md-10">
+          <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link text-success font-weight-bold" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link text-success font-weight-bold" href="#">1</a></li>
+            <li class="page-item"><a class="page-link text-success font-weight-bold" href="#">2</a></li>
+            <li class="page-item"><a class="page-link text-success font-weight-bold" href="#">3</a></li>
+            <li class="page-item"><a class="page-link text-success font-weight-bold" href="#">Next</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+    </div>
+
+
+{% endblock %}

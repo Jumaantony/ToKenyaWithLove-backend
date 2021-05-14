@@ -1,0 +1,169 @@
+{% load static %}
+{% load kisumu_tags%}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+           integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+      <!-- font awesome -->
+      <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome/css/font-awesome.min.css' %}">
+
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+      <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body class="">
+
+    <!-- nav -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-success sticky-top">
+      <div class="container-fluid">
+
+            <a class="navbar-brand mr-5" href="index.html.html"><img src="{% static 'images/logo.png' %}"
+                                                                     class="img-fluid"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'kisumu:index' %}">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'kisumu:about' %}">About Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'kisumu:CauseList' %}">Causes</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'kisumu:blog_list' %}">Blog</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'kisumu:contact' %}">Contact Us</a>
+                    </li>
+
+                </ul>
+
+                <form class="d-flex">
+                    <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+
+            </div>
+      </div>
+    </nav>
+
+    <!--nav -->
+
+    <!-- content -->
+{% block content %}
+
+{% endblock %}
+    <!-- footer -->
+
+<footer class="mt-5 pt-3">
+  <div class="container-xxl foot-cont">
+
+    <div class="row">
+
+      <div class="col-md-3">
+        <img src="{% static 'images/logo.png' %}" class="img-fluid foot-img">
+        <p class="mt-2 p-about medium">
+          To Kenya With Love (TKWL) is a UK Christian charity that works to significantly transform the lives of children in Kisumu...
+        </p>
+        <a href=" "><i class="fa fa-facebook fa-2x ml-2"></i></a>
+
+        <a href=" "><i class="fa fa-twitter fa-2x ml-3"></i></a>
+
+      </div>
+
+      <div class="col-md-3">
+
+        <h3 class="foot-title">Popular Causes</h3>
+            {% show_popular_causes 5 %}
+
+      </div>
+
+      <div class="col-md-3">
+          <h3 class="foot-title">Latest Blog Posts</h3>
+            {% show_latest_posts 5 %}
+
+      </div>
+
+      <div class="col-md-3">
+          <h3 class="foot-title">Reach Out</h3>
+          <p class="mt-1 p-about medium">
+            <i class="fa fa-phone"> +254 7xxxxxxxx </i>
+          </p>
+
+          <p class="mt-1 p-about medium">
+            <i class="fa fa-inbox"> tkwlKisumu@gmail.com</i>
+          </p>
+
+          <p class="mt-1 p-about medium">
+            <i class="fa fa-location-arrow"> Kisumu Office</i>
+          </p>
+
+          <h3 class="foot-title">RSS</h3>
+          <p class="mt-1 p-about medium">
+            <i class="fa fa-rss fa-2x"></i>
+          </p>
+
+      </div>
+
+    </div>
+
+    <div class="row mt-3 ">
+
+      <nav aria-label="breadcrumb container-fluid">
+        <ol class="breadcrumb foot-nav">
+          <li class="breadcrumb-item">
+            <a class=" text-decoration-none text-success font-weight-bold" aria-current="page"
+               href="{% url 'kisumu:index' %}">Home</a>
+          </li>
+
+          <li class="breadcrumb-item">
+            <a class=" text-decoration-none text-success font-weight-bold" href="{% url 'kisumu:about' %}">About Us</a>
+          </li>
+
+          <li class="breadcrumb-item">
+            <a class=" text-decoration-none text-success font-weight-bold" href="{% url 'kisumu:CauseList' %}">
+                Causes</a>
+          </li>
+
+          <li class="breadcrumb-item">
+            <a class=" text-decoration-none text-success font-weight-bold" href="{% url 'kisumu:blog_list' %}">Blog</a>
+          </li>
+
+          <li class="breadcrumb-item">
+            <a class=" text-decoration-none text-success font-weight-bold" href="{% url 'kisumu:contact' %}">Contact
+                Us</a>
+          </li>
+
+        </ol>
+      </nav>
+
+    </div>
+
+  </div>
+</footer>
+
+    <!-- Optional JavaScript -->
+    <!-- Popper.js first, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+      <!-- font awesome -->
+    <script src="https://use.fontawesome.com/61bfe38b9a.js"></script>
+
+  </body>
+</html>
