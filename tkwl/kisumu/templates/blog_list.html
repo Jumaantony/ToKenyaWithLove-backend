@@ -27,11 +27,14 @@
 
         <nav aria-label="Page navigation example" class="col-md-10">
           <ul class="pagination justify-content-center">
-            <li class="page-item"><a class="page-link text-success font-weight-bold" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link text-success font-weight-bold" href="#">1</a></li>
-            <li class="page-item"><a class="page-link text-success font-weight-bold" href="#">2</a></li>
-            <li class="page-item"><a class="page-link text-success font-weight-bold" href="#">3</a></li>
-            <li class="page-item"><a class="page-link text-success font-weight-bold" href="#">Next</a></li>
+              {%if posts.has_previous %} {# whether the previous page exists #}
+                    <li class="page-item"><a class="page-link text-success font-weight-bold" href="?page={{posts.previous_page_number}}">Previous</a></li>
+              {% endif %}
+                    <li class="page-item"><a class="page-link text-success font-weight-bold" href="#">{{posts.number}}</a></li>
+              {%if posts.has_next %} {# whether the next page exists #}
+                    <li class="page-item"><a class="page-link text-success font-weight-bold"
+                                             href="?page={{posts.next_page_number}}">Next</a></li>
+              {% endif %}
           </ul>
         </nav>
 
