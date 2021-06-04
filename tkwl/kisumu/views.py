@@ -1,8 +1,10 @@
+from django.db.models import Count
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from .models import Cause, BlogPost
 from django.core.paginator import *
 from .forms import CommentForm
+from taggit.models import Tag
 
 
 # Create your views here.
@@ -26,7 +28,7 @@ class CauseDetail(DetailView):
     template_name = 'causes_detail.html'
 
 
-def blog_list(request):
+def blog_list(request, ):
     posts = BlogPost.published.all()
     p = Paginator(posts, 3)  # paginator object
     # getting the desired page number from url
@@ -46,13 +48,19 @@ def blog_list(request):
                   context)
 
 
-def blog_detail(request, year, month, day, post):
+def blog_detail(request, year, month, day, post, tag_slug=None):
     post = get_object_or_404(BlogPost,
                              slug=post,
                              status='published',
                              publish__year=year,
                              publish__month=month,
                              publish__day=day)
+
+    # adding Tags in Posts
+    tag = None
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        post = post.filter(tags__in=[tag])
 
     # list of active comments
     comments = post.comments.filter(active=True)
@@ -71,12 +79,21 @@ def blog_detail(request, year, month, day, post):
     else:
         comment_form = CommentForm
 
+    # list of similar functions
+    post_tags_ids = post.tags.values_list('id', flat=True)
+    similar_posts = BlogPost.published.filter(tags__in=post_tags_ids) \
+        .exclude(id=post.id)
+    similar_posts = similar_posts.annotate(same_tags=Count('tags')) \
+                        .order_by('-same_tags', '-publish')[:4]
+
     return render(request,
                   'blog_detail.html',
                   {'post': post,
                    'comments': comments,
                    'new_comment': new_comment,
                    'comment_form': comment_form,
+                   'similar_posts': similar_posts,
+                   'tag': tag,
                    })
 
 

@@ -27,3 +27,10 @@ def recent_posts(count=3):
 def recent_cause(count=3):
     most_recent_cause = Cause.objects.filter(status='publish').order_by('-publish')[:count]
     return {'most_recent_cause': most_recent_cause}
+
+
+@register.simple_tag
+def get_most_commented_posts(count=3):
+    return BlogPost.published.annotate(
+        total_comments=Count('comments')
+    ).order_by('-total_comments')[:count]

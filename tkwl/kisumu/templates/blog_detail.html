@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load kisumu_tags%}
 {% load social_share %}
 {% load crispy_forms_tags %}
 {%block title%} Detailed Blog Post {% endblock %}
@@ -13,7 +14,7 @@
             <h1 class="text-success text-capitalize font-weight-bold">
               {{ post.title }}
             </h1>
-          <p class="text-muted font-italic">Post Tagged As: Success Story</p>
+          <p class="text-muted font-italic">Post Tagged as: {{ post.tags.all|join:", " }}</p>
           <p>
            {{ post.body | striptags | linebreaks  }}
           </p>
@@ -75,11 +76,17 @@
             <h2 class="text-capitalize font-weight-bold mt-3">Simmilar Posts</h2>
 
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Morbi leo risus</li>
-              <li class="list-group-item">Porta ac consectetur ac</li>
-              <li class="list-group-item">Vestibulum at eros</li>
+              {% for post in similar_posts %}
+                <li class="list-group-item">
+                  <h5>
+                    <a href="{{ post.get_absolute_url }}"
+                       class="text-decoration-none text-success font-weight-bold">{{post.title }}</a>
+                  </h5>
+                </li>
+              {% empty %}
+                <p>There are no similar posts yet</p>
+              {% endfor %}
+
             </ul>
 
           </div>
@@ -89,28 +96,17 @@
             <h2 class="text-capitalize font-weight-bold mt-3">Most Commented Posts</h2>
 
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Morbi leo risus</li>
-              <li class="list-group-item">Porta ac consectetur ac</li>
-              <li class="list-group-item">Vestibulum at eros</li>
+              {% get_most_commented_posts as most_commented_posts %}
+                {% for post in most_commented_posts %}
+                  <li class="list-group-item">
+                    <p class="sub-cat"><a href="{{ post.get_absolute_url }}" class="text-decoration-none text-success font-weight-bold">{{ post.title }}</a></p>
+                  </li>
+                {% endfor %}
+
             </ul>
 
           </div>
 
-          <div class="tags">
-            <h2 class="text-capitalize font-weight-bold mt-3">Tags</h2>
-            <hr>
-
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Morbi leo risus</li>
-              <li class="list-group-item">Porta ac consectetur ac</li>
-              <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-
-          </div>
         </div>
       </div>
 

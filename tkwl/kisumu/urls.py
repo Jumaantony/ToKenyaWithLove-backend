@@ -17,7 +17,9 @@ urlpatterns = [
     path('<int:year>/<int:month>/<int:day>/<slug:post>/',
          views.blog_detail, name='blog_detail'),
 
-    path('contact.html', views.contact, name='contact'),
+    path('tag/<slug:tag_slug>/',
+         views.blog_detail, name='blog_detail_by_tag'),
 
+    path('contact.html', views.contact, name='contact'),
 
 ]
