@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from .models import Cause, BlogPost
 from django.core.paginator import *
+from .forms import CommentForm
 
 
 # Create your views here.
@@ -53,9 +54,30 @@ def blog_detail(request, year, month, day, post):
                              publish__month=month,
                              publish__day=day)
 
+    # list of active comments
+    comments = post.comments.filter(active=True)
+    new_comment = None
+    if request.method == 'POST':
+        # comment posted
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            # create a new comment but do not save in the database yet
+            new_comment = comment_form.save(commit=False)
+            # assign the current post to the comment
+            new_comment.post = post
+            # save the comment to the database
+            new_comment.save()
+
+    else:
+        comment_form = CommentForm
+
     return render(request,
                   'blog_detail.html',
-                  {'post': post})
+                  {'post': post,
+                   'comments': comments,
+                   'new_comment': new_comment,
+                   'comment_form': comment_form,
+                   })
 
 
 def contact(request):

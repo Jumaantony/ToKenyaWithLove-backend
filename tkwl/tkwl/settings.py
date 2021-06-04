@@ -41,7 +41,11 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'taggit',
     'django_social_share',
+    'crispy_forms',
 ]
+
+# crispy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
@@ -75,7 +79,7 @@ JAZZMIN_SETTINGS = {
     'topmenu_links': [
 
         # Url that gets reversed (Permissions can be added)
-        {'name': 'Home',  'url': 'admin:index', 'permissions': ['auth.view_user']},
+        {'name': 'Home', 'url': 'admin:index', 'permissions': ['auth.view_user']},
 
         # model admin to link to (Permissions checked against model)
         {'model': 'auth.User'},
@@ -138,7 +142,7 @@ JAZZMIN_SETTINGS = {
     # - carousel
     "changeform_format": "horizontal_tabs",
     # override change forms on a per modeladmin basis
-    "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs",},
+    "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs", },
     # Add a language dropdown into the admin
     "language_chooser": False,
 }

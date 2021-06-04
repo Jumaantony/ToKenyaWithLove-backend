@@ -22,9 +22,10 @@ class BlogPostAdmin(admin.ModelAdmin):
     date_hierarchy = 'publish'
     ordering = ('status', 'publish')
 
+
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'blogpost', 'created', 'active', 'body')
+    list_display = ('name', 'email', 'post', 'created', 'active', 'body')
     list_filter = ('active', 'created', 'updated')
     search_fields = ('name', 'email', 'body')
     actions = ['approve_comments']
