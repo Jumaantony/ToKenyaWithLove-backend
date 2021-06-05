@@ -3,8 +3,9 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from .models import Cause, BlogPost
 from django.core.paginator import *
-from .forms import CommentForm
+from .forms import CommentForm, SearchForm
 from taggit.models import Tag
+from django.contrib.postgres.search import SearchVector
 
 
 # Create your views here.
@@ -99,3 +100,15 @@ def blog_detail(request, year, month, day, post, tag_slug=None):
 
 def contact(request):
     return render(request, 'contact.html', {})
+
+
+def search(request):
+    if request.method == 'GET':
+        query = request.GET['search_query']
+        search_results = BlogPost.objects.annotate(
+            search=SearchVector('title', 'body')
+        ).filter(search=query)
+        print(search_results)
+        context = {'search_results': search_results,
+                   'query': query}
+        return render(request, 'search.html', context)

@@ -22,4 +22,5 @@ urlpatterns = [
 
     path('contact.html', views.contact, name='contact'),
 
+    path('search', views.search, name='search'),
 ]

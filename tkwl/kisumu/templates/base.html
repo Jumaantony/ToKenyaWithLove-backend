@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-success sticky-top">
       <div class="container-fluid">
 
-            <a class="navbar-brand mr-5" href="index.html.html"><img src="{% static 'images/logo.png' %}"
+            <a class="navbar-brand mr-5" href="{% url 'kisumu:index' %}"><img src="{% static 'images/logo.png' %}"
                                                                      class="img-fluid"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -55,8 +55,11 @@
 
                 </ul>
 
-                <form class="d-flex">
-                    <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" method = "GET" action="{% url 'kisumu:search' %}">
+                    {% csrf_token %}
+                    <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search"
+                           name="search_query">
+
                     <button class="btn btn-outline-light" type="submit">Search</button>
                 </form>
 

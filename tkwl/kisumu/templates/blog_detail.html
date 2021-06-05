@@ -3,7 +3,7 @@
 {% load kisumu_tags%}
 {% load social_share %}
 {% load crispy_forms_tags %}
-{%block title%} Detailed Blog Post {% endblock %}
+{%block title%} {{ post.title }} {% endblock %}
 
 {% block content%}
 
@@ -21,7 +21,7 @@
 
           <!-- share btns -->
 
-            <h6 class="d-inline-block">{% post_to_facebook "New Post: {{post.title }}. Check it out!" object_or_url %}</h6>
+            <h6 class="d-inline-block">{% post_to_facebook object_or_url %}</h6>
             <h6 class="d-inline-block">{% post_to_twitter "New Post: {{post.title }}. Check it out!" object_or_url %}</h6>
             <h6 class="d-inline-block">{% post_to_whatsapp object_or_url "" %}</h6>
 

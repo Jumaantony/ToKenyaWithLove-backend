@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{%block title%} Search Results {% endblock %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+{% block content %}
+    <div class="container-fluid">
+        {% if search_results %}
+        <h1>Posts containing '{{query}}'</h1>
+        <h3>
+            {% with search_results.count as total_search_results %}
+                Found {{ total_search_results }} result{{ total_search_results|pluralize }}
+            {% endwith %}
+        </h3>
+        {% for post in search_results %}
+        <h2><a href="{{ post.get_absolute_url }}" class="text-decoration-none text-dark">{{ post.title}}</a></h2>
+
+            <p>{{ post.body | striptags| truncatewords:20 | linebreaks }}</p>
+
+        {% endfor %}
+    {% else %}
+        <p>Please search again. No result found for <b>"{{query}}"</b>.</p>
+    {% endif %}
+    </div>
+
+{% endblock %}

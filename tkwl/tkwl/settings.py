@@ -24,7 +24,8 @@ SECRET_KEY = 'ux^_#4gnhmo&+o82i2o1jfbefq#o88_$8xws@98f89#m25hhp='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+]
 
 # Application definition
 
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
     'kisumu',
     'ckeditor',
     'ckeditor_uploader',
@@ -202,8 +204,13 @@ WSGI_APPLICATION = 'tkwl.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'tkwl',
+        'USER': 'tkwl',
+        'PASSWORD': 'tkwl',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'OPTIONS': {'connect_timeout': 2},
     }
 }
 
