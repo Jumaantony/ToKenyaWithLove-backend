@@ -5,7 +5,7 @@ from .models import Cause, BlogPost
 from django.core.paginator import *
 from .forms import CommentForm, SearchForm
 from taggit.models import Tag
-from django.contrib.postgres.search import SearchVector
+from django.contrib.postgres.search import SearchVector, SearchHeadline, SearchQuery
 
 
 # Create your views here.
@@ -104,11 +104,17 @@ def contact(request):
 
 def search(request):
     if request.method == 'GET':
-        query = request.GET['search_query']
+        query = SearchQuery(request.GET['search_query'])
         search_results = BlogPost.objects.annotate(
-            search=SearchVector('title', 'body')
+            search=SearchVector('title', 'body'),
         ).filter(search=query)
-        print(search_results)
+
+        search_results2 = Cause.objects.annotate(
+            search=SearchVector('title', 'content')
+        ).filter(search=query)
+
         context = {'search_results': search_results,
+                   'search_results2': search_results2,
                    'query': query}
         return render(request, 'search.html', context)
+

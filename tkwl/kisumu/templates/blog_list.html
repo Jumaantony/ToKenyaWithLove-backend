@@ -17,7 +17,7 @@
               <a href="{{ post.get_absolute_url }}"
                  class="text-decoration-none"><h2 class="card-title font-weight-bold text">{{ post.title }}</h2></a>
               <p class="text-muted font-italic" > - {{ post.publish }}</p>
-              <p class="card-text blog-info"> {{ post.body | striptags| truncatewords:30 | linebreaks }}</p>
+              <p class="card-text blog-info"> {{ post.body | striptags| truncatewords:30 }}</p>
               <a href="{{ post.get_absolute_url }}" class="btn btn-success blog-more font-weight-bold">READ MORE</a>
             </div>
           </div>

@@ -13,7 +13,7 @@
             {% endwith %}
         </h3>
         {% for post in search_results %}
-        <h2><a href="{{ post.get_absolute_url }}" class="text-decoration-none text-dark">{{ post.title}}</a></h2>
+        <h2><a href="{{ post.get_absolute_url }}" class="text-decoration-none text-success">{{ post.title}}</a></h2>
 
             <p>{{ post.body | striptags| truncatewords:20 | linebreaks }}</p>
 
