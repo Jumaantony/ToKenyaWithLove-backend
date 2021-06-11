@@ -5,7 +5,7 @@
 
 {% block content %}
     <div class="container-fluid">
-        {% if search_results %}
+    {% if search_results %}
         <h1>Posts containing '{{query}}'</h1>
         <h3>
             {% with search_results.count as total_search_results %}

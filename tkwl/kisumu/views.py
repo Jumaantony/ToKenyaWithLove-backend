@@ -104,17 +104,11 @@ def contact(request):
 
 def search(request):
     if request.method == 'GET':
-        query = SearchQuery(request.GET['search_query'])
+        query = request.GET['search_query']
         search_results = BlogPost.objects.annotate(
             search=SearchVector('title', 'body'),
         ).filter(search=query)
 
-        search_results2 = Cause.objects.annotate(
-            search=SearchVector('title', 'content')
-        ).filter(search=query)
-
         context = {'search_results': search_results,
-                   'search_results2': search_results2,
                    'query': query}
         return render(request, 'search.html', context)
-

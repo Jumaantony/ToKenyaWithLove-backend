@@ -10,8 +10,6 @@ urlpatterns = [
 
     path('causes_list/', views.CauseList.as_view(), name='CauseList'),
 
-    path('<slug:slug>/', views.CauseDetail.as_view(), name='CauseDetail'),
-
     path('blog_list/', views.blog_list, name='blog_list'),
 
     path('<int:year>/<int:month>/<int:day>/<slug:post>/',
@@ -23,5 +21,7 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
 
     path('search/', views.search, name='search'),
+
+    path('<slug:slug>/', views.CauseDetail.as_view(), name='CauseDetail'),
 
 ]
