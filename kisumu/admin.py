@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cause, BlogPost, Comment, Contact
+from .models import Cause, BlogPost, Comment
 
 
 # Register your models here.
@@ -34,6 +34,3 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(active=True)
 
 
-@admin.register(Contact)
-class ContactAdmin(admin.ModelAdmin):
-    list_display = ('name','email', 'message')
