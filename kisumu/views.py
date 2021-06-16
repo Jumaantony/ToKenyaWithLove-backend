@@ -3,9 +3,10 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from .models import Cause, BlogPost
 from django.core.paginator import *
-from .forms import CommentForm, SearchForm
+from .forms import CommentForm
 from taggit.models import Tag
 from django.contrib.postgres.search import SearchVector, SearchHeadline, SearchQuery
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -99,7 +100,28 @@ def blog_detail(request, year, month, day, post, tag_slug=None):
 
 
 def contact(request):
-    return render(request, 'contact.html', {})
+    if request.method == 'POST':
+        sender_name = request.POST['sender_name']
+        sender_email = request.POST['sender_email']
+        message = request.POST['message']
+
+        # send an email
+        send_mail(
+            sender_name,  # subject
+            message,  # message
+            sender_email,  # from email
+            ['odongoanton2@gmail.com'],  # To Email
+        )
+
+        context = {
+            'sender_name': sender_name,
+            'sender_email': sender_email,
+            'message': message
+        }
+
+        return render(request, 'contact.html', context)
+    else:
+        return render(request, 'contact.html', {})
 
 
 def search(request):

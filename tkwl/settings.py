@@ -266,4 +266,12 @@ AUTHENTICATION_BACKENDS = (
 MEDIA_ROOT = '/media/'
 MEDIA_URL = 'media/'
 
+# sending emails
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = 'odongoanton2@gmail.com'
+EMAIL_PORT_PASSWORD = 'Antony1998'
+EMAIL_USE_TSL = True
+
+
 django_heroku.settings(locals())
