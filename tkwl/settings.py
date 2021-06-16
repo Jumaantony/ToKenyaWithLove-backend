@@ -14,6 +14,11 @@ from pathlib import Path
 import django_heroku
 import dj_database_url
 from decouple import config
+import environ
+
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ux^_#4gnhmo&+o82i2o1jfbefq#o88_$8xws@98f89#m25hhp='
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -269,8 +274,8 @@ MEDIA_URL = 'media/'
 # sending emails
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'odongoanton2@gmail.com'
-EMAIL_PORT_PASSWORD = 'Antony1998'
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_PORT_PASSWORD = env('EMAIL_PORT_PASSWORD')
 EMAIL_USE_TSL = True
 
 
