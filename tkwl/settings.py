@@ -273,5 +273,9 @@ EMAIL_HOST_USER = 'odongoanton2@gmail.com'
 EMAIL_PORT_PASSWORD = 'Antony1998'
 EMAIL_USE_TSL = True
 
+# MAILCHIMP CREDENTIALS
+MAILCHIMP_API_KEY = "3dbb4d6abcada94ece9de41909e7f6d9-us6"
+MAILCHIMP_DATA_CENTER = "us6"  # the_last_3_characters_of_your_api_key
+MAILCHIMP_EMAIL_LIST_ID = "16da5bf122"
 
 django_heroku.settings(locals())
