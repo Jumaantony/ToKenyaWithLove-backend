@@ -1,4 +1,3 @@
-from django.contrib import messages
 from django.db.models import Count
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
@@ -173,7 +172,4 @@ def subscription(request):
     if request.method == 'POST':
         email = request.POST['email']
         print(email)
-
-        messages.success(request, "Email received. thank You! ")
-
     return render(request, 'subscribe.html')
