@@ -8,6 +8,8 @@ urlpatterns = [
 
     path('contact/', views.contact, name='contact'),
 
+    path('search/', views.search, name='search'),
+
     path('about/', views.about, name='about'),
 
     path('causes_list/', views.CauseList.as_view(), name='CauseList'),
@@ -21,7 +23,5 @@ urlpatterns = [
 
     path('tag/<slug:tag_slug>/',
          views.blog_detail, name='blog_detail_by_tag'),
-
-    path('search/', views.search, name='search'),
 
 ]
