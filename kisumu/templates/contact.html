@@ -33,7 +33,7 @@
 
               <div class="col-sm-5 ">
                     <form method="post" class=" p-1" action="{% url 'kisumu:contact'%}">
-
+                    {% csrf_token %}
                     <h3 class="font-weight-bold">Get In Touch</h3>
 
                     <input name="sender_name" type="text" class="form-control mb-2 w-100" id="Name"
