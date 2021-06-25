@@ -27,8 +27,9 @@ SECRET_KEY = 'ux^_#4gnhmo&+o82i2o1jfbefq#o88_$8xws@98f89#m25hhp='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*'
-                 ]
+SITE_ID = 1
+
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -47,7 +48,31 @@ INSTALLED_APPS = [
     'taggit',
     'django_social_share',
     'crispy_forms',
+
+    # newsletter
+    'newsletter',
+    'sorl.thumbnail',
+    'django.contrib.sites',
+    'tinymce'
 ]
+
+# Newsletter settings
+# using soarl thumbnail
+NEWSLETTER_THUMBNAIL = 'sorl_thumbnail'
+
+NEWSLETTER_CONFIRM_EMAIL = True
+
+# newsletter richtext widget
+NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
+
+# Amount of seconds to wait between each email. Here 100ms is used.
+NEWSLETTER_EMAIL_DELAY = 0.1
+
+# Amount of seconds to wait between each batch. Here one minute is used.
+NEWSLETTER_BATCH_DELAY = 60
+
+# Number of emails in one batch
+NEWSLETTER_BATCH_SIZE = 100
 
 # crispy forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -272,10 +297,5 @@ EMAIL_PORT = '587'
 EMAIL_HOST_USER = 'odongoanton2@gmail.com'
 EMAIL_PORT_PASSWORD = 'Antony1998'
 EMAIL_USE_TSL = True
-
-# MAILCHIMP CREDENTIALS
-MAILCHIMP_API_KEY = "3dbb4d6abcada94ece9de41909e7f6d9-us6"
-MAILCHIMP_DATA_CENTER = "us6"  # the_last_3_characters_of_your_api_key
-MAILCHIMP_EMAIL_LIST_ID = "16da5bf122"
 
 django_heroku.settings(locals())

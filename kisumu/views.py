@@ -5,11 +5,8 @@ from .models import Cause, BlogPost
 from django.core.paginator import *
 from .forms import CommentForm
 from taggit.models import Tag
-from django.contrib.postgres.search import SearchVector, SearchHeadline, SearchQuery
+from django.contrib.postgres.search import SearchVector
 from django.core.mail import send_mail
-from django.conf import settings
-from mailchimp_marketing import Client
-from mailchimp_marketing.api_client import ApiClientError
 
 
 # Create your views here.
@@ -136,40 +133,3 @@ def search(request):
         context = {'search_results': search_results,
                    'query': query}
         return render(request, 'search.html', context)
-
-
-# Mailchimp Settings
-api_key = settings.MAILCHIMP_API_KEY
-server = settings.MAILCHIMP_DATA_CENTER
-list_id = settings.MAILCHIMP_EMAIL_LIST_ID
-
-
-# subscription Logic
-def subscribe(email):
-    """"
-    Contains code handling the communication to the
-    mailchimp to create a contact/member in an audience list
-    """
-    mailchimp = Client
-    mailchimp.set_config({
-        "api_key": api_key,
-        "server": server,
-    })
-
-    member_info = {
-        "email_address": email,
-        "status": "subscribed"
-    }
-
-    try:
-        response = mailchimp.lists.add_list_member(list_id, member_info)
-        print("response: {}".format(response))
-    except ApiClientError as error:
-        print("An exception occured: {}".format(error.text))
-
-
-def subscription(request):
-    if request.method == 'POST':
-        email = request.POST['email']
-        print(email)
-    return render(request, 'subscribe.html')

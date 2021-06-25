@@ -117,7 +117,17 @@
             <i class="fa fa-location-arrow"> Kisumu Office</i>
           </p>
 
-          {% include 'subscribe.html' %}
+          <form enctype="multipart/form-data" action="/newsletter/[To-Kenya-With-Love]/subscribe/"
+                method="post">
+              <h5 class="foot-title">Subscribe to our Monthly Newsletter</h5>
+              {% csrf_token %}
+              <input class="form-control mr-2" type="email" placeholder="Email Address" aria-label="Email"
+                           name="email_field" id="id_email_field" required="">
+              <button class="btn btn-success btn-outline-light mt-1 font-weight-bold text-dark" id="id_submit"
+                      type="submit" name="submit" value="Subscribe">Subscribe
+              </button>
+
+        </form>
 
       </div>
 
