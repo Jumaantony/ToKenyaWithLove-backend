@@ -115,6 +115,7 @@ def contact(request):
 
         context = {
             'sender_name': sender_name,
+            'sender_email' : sender_email,
             'message': message,
         }
 
@@ -134,7 +135,7 @@ def search(request):
             search=SearchVector('title', 'content'),
         ).filter(search=query)
 
-        total_results = list(chain(search_results, search_results2))
+        total_results = chain(search_results, search_results2)
 
         context = {'search_results': search_results,
                    'search_results2': search_results2,
