@@ -7,6 +7,7 @@ from .forms import CommentForm
 from taggit.models import Tag
 from django.contrib.postgres.search import SearchVector
 from django.core.mail import send_mail
+from itertools import chain
 
 
 # Create your views here.
@@ -21,7 +22,7 @@ def about(request):
 class CauseList(ListView):
     queryset = Cause.objects.filter(status='publish').order_by('-publish')
     template_name = 'causes_list.html'
-    paginate_by = 4
+    paginate_by = 6
 
 
 class CauseDetail(DetailView):
@@ -104,18 +105,17 @@ def contact(request):
         sender_email = request.POST['sender_email']
         message = request.POST['message']
 
+        msg_mail = str(message) + " " + str(sender_email)
         # send an email
-        send_mail(
-            sender_name,  # subject
-            message,  # message
-            sender_email,  # from email
-            ['odongoanton2@gmail.com'],  # To Email
-        )
+        send_mail(sender_name,
+                  msg_mail,
+                  sender_email,
+                  ['odongoanton2@gmail.com'],
+                  )
 
         context = {
             'sender_name': sender_name,
-            'sender_email': sender_email,
-            'message': message
+            'message': message,
         }
 
         return render(request, 'contact.html', context)
@@ -130,6 +130,14 @@ def search(request):
             search=SearchVector('title', 'body'),
         ).filter(search=query)
 
+        search_results2 = Cause.objects.annotate(
+            search=SearchVector('title', 'content'),
+        ).filter(search=query)
+
+        total_results = list(chain(search_results, search_results2))
+
         context = {'search_results': search_results,
+                   'search_results2': search_results2,
+                   'total_results': total_results,
                    'query': query}
         return render(request, 'search.html', context)

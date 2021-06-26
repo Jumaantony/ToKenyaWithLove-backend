@@ -5,22 +5,35 @@
 
 {% block content %}
     <div class="container-fluid">
-    {% if search_results %}
-        <h1>Posts containing '{{query}}'</h1>
+    {% if total_results %}
+        <h1>Query containing '{{query}}'</h1>
         <h3>
-            {% with search_results.count as total_search_results %}
-                Found {{ total_search_results }} result{{ total_search_results|pluralize }}
+            {% with total_results as total_total_results %}
+                Found total_results {{ total_total_results }} result {{ total_total_results|pluralize }}
             {% endwith %}
         </h3>
-        {% for post in search_results %}
-        <h2><a href="{{ post.get_absolute_url }}" class="text-decoration-none text-success">{{ post.title}}</a></h2>
+        {% if search_results %}
+            {% for post in search_results %}
+                <h2><a href="{{ post.get_absolute_url }}" class="text-decoration-none text-success">{{ post.title}}</a></h2>
 
-            <p>{{ post.body | striptags| truncatewords:20 | linebreaks }}</p>
+                <p>{{ post.body | striptags| truncatewords:20 | linebreaks }}</p>
 
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            {% for cause in search_results2 %}
+                <h2>
+                    <a href="{% url 'kisumu:CauseDetail' cause.slug %}" class="text-decoration-none text-success">
+                    {{ cause.title }}</a>
+                </h2>
+                <p class="card-text">
+                    {{ cause.content | safe | linebreaks | truncatewords:20 }}
+                </p>
+            {% endfor %}
+        {% endif %}
     {% else %}
         <p>Please search again. No result found for <b>"{{query}}"</b>.</p>
     {% endif %}
     </div>
+
 
 {% endblock %}
