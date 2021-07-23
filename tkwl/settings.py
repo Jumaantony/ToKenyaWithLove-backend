@@ -15,6 +15,12 @@ import django_heroku
 import dj_database_url
 from decouple import config
 
+# cloudinary imports
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -49,12 +55,22 @@ INSTALLED_APPS = [
     'django_social_share',
     'crispy_forms',
 
+    # cloudinary
+    'cloudinary',
+
     # newsletter
     'newsletter',
     'sorl.thumbnail',
     'django.contrib.sites',
-    'tinymce'
+    'tinymce',
 ]
+
+# cloudinary config
+cloudinary.config(
+    cloud_name="kisumu-org",
+    api_key="773424846215666",
+    api_secret="SaMBazwZvkBe9vubaIMFgjzdR7M",
+)
 
 # Newsletter settings
 # using soarl thumbnail

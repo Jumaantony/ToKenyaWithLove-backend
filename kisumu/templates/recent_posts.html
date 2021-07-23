@@ -9,7 +9,10 @@
       <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
         {% for post in most_recent_post %}
-                <div class="col-md-4 mb-3 pt-3 news-inf">
+                <div class="col-md-4 mb-3 pt-3 news-inf"
+                data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom"
+                data-aos-duration="1500">
                   <div class="card">
                     <img src="{{ post.blog_image.url }}" class="card-img-top causes-img" alt="cause-img">
                     <div class="card-body">

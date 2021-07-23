@@ -22,7 +22,7 @@ def about(request):
 class CauseList(ListView):
     queryset = Cause.objects.filter(status='publish').order_by('-publish')
     template_name = 'causes_list.html'
-    paginate_by = 6
+    paginate_by = 4
 
 
 class CauseDetail(DetailView):
@@ -32,7 +32,7 @@ class CauseDetail(DetailView):
 
 def blog_list(request, ):
     posts = BlogPost.published.all()
-    p = Paginator(posts, 3)  # paginator object
+    p = Paginator(posts, 4)  # paginator object
     # getting the desired page number from url
     page_number = request.GET.get('page')
     try:

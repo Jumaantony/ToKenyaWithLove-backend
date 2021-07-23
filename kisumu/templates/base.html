@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
 
+    <!-- Animate On scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
            integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
@@ -80,7 +83,7 @@
 
     <div class="row">
 
-      <div class="col-md-3">
+      <div class="col-md-3" data-aos="fade-up-right" data-aos-duration="1500">
         <img src="{% static 'images/logo.png' %}" class="img-fluid foot-img">
         <p class="mt-2 p-about medium">
           To Kenya With Love (TKWL) is a UK Christian charity that works to significantly transform the lives of children in Kisumu...
@@ -90,21 +93,21 @@
 
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-3" data-aos="zoom-in" data-aos-duration="1500">
 
         <h3 class="foot-title">Popular Causes</h3>
             {% show_popular_causes 5 %}
 
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-3" data-aos="zoom-in" data-aos-duration="1500">
           <h3 class="foot-title">Latest Blog Posts</h3>
             {% show_latest_posts 5 %}
 
       </div>
 
-      <div class="col-md-3">
-          <h3 class="foot-title">Reach Out</h3>
+      <div class="col-md-3" data-aos="fade-up-left" data-aos-duration="1500">
+          <h3 class="foot-title"> Reach Out </h3>
           <p class="mt-1 p-about medium">
             <i class="fa fa-phone"> +254 7xxxxxxxx </i>
           </p>
@@ -175,5 +178,10 @@
       <!-- font awesome -->
     <script src="https://use.fontawesome.com/61bfe38b9a.js"></script>
 
+    <!-- Animate On Scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
   </body>
 </html>

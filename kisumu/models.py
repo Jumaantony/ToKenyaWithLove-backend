@@ -3,6 +3,7 @@ from django.utils import timezone
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.urls import reverse
 from taggit.managers import TaggableManager
+from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
@@ -20,7 +21,7 @@ class Cause(models.Model):
 
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=100, unique_for_date='publish')
-    cause_image = models.ImageField(upload_to='CauseImage/')
+    cause_image = CloudinaryField('CauseImage')
     content = RichTextUploadingField()
     created = models.DateTimeField(auto_now_add=True)
     publish = models.DateTimeField(default=timezone.now)
@@ -43,7 +44,7 @@ class BlogPost(models.Model):
 
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=100, unique_for_date='publish')
-    blog_image = models.ImageField(upload_to='BlogImage/')
+    blog_image = CloudinaryField('BlogImage')
     body = RichTextUploadingField()
     created = models.DateTimeField(auto_now_add=True)
     publish = models.DateTimeField(default=timezone.now)
