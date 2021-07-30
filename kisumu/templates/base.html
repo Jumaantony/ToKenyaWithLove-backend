@@ -120,7 +120,8 @@
             <i class="fa fa-location-arrow"> Kisumu Office</i>
           </p>
 
-          <form enctype="multipart/form-data" action="{% url 'newsletter_subscribe_request' 'To-Kenya-With-Love' %}"
+          <form enctype="multipart/form-data"
+                action="{% url 'newsletter_subscribe_request' 'To-Kenya-With-Love' %}"
                 method="post">
               <h5 class="foot-title">Subscribe to our Monthly Newsletter</h5>
               {% csrf_token %}
