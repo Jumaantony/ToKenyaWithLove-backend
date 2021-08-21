@@ -1,4 +1,6 @@
 from django import template
+from django.utils.safestring import mark_safe
+
 from ..models import BlogPost, Cause
 from django.db.models import Count
 
@@ -34,3 +36,9 @@ def get_most_commented_posts(count=3):
     return BlogPost.published.annotate(
         total_comments=Count('comments')
     ).order_by('-total_comments')[:count]
+
+
+@register.filter(is_safe=True)
+def highlight_search(text, query):
+    highlighted = text.replace(query, '<strong style="color: red">{}</strong>'.format(query))
+    return mark_safe(highlighted)

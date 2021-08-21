@@ -9,7 +9,7 @@
         <h1>Query containing '{{query}}'</h1>
         <h3>
             {% with total_results as total_total_results %}
-                Found total_results {{ total_total_results }} result {{ total_total_results|pluralize }}
+                Found {{ total_total_results }} result{{ total_total_results|pluralize }}
             {% endwith %}
         </h3>
         {% if search_results %}
