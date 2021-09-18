@@ -81,6 +81,15 @@ NEWSLETTER_CONFIRM_EMAIL = True
 # newsletter richtext widget
 NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
 
+# Amount of seconds to wait between each email. Here 100ms is used.
+NEWSLETTER_EMAIL_DELAY = 0.1
+
+# Amount of seconds to wait between each batch. Here one minute is used.
+NEWSLETTER_BATCH_DELAY = 60
+
+# Number of emails in one batch
+NEWSLETTER_BATCH_SIZE = 100
+
 # crispy forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
