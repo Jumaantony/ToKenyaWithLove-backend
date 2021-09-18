@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load kisumu_tags %}
 {% load static %}
 {%block title%} Search Results {% endblock %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
@@ -14,19 +15,23 @@
         </h3>
         {% if search_results %}
             {% for post in search_results %}
-                <h2><a href="{{ post.get_absolute_url }}" class="text-decoration-none text-success">{{ post.title}}</a></h2>
+                <h2>
+                    <a href="{{ post.get_absolute_url }}" class="text-decoration-none text-success">
+                    {{ post.title|highlight_search:query}}
+                    </a>
+                </h2>
 
-                <p>{{ post.body | striptags| truncatewords:20 | linebreaks }}</p>
+                <p>{{ post.body|highlight_search:query| striptags| truncatewords:20 | linebreaks }}</p>
 
             {% endfor %}
         {% else %}
             {% for cause in search_results2 %}
                 <h2>
                     <a href="{% url 'kisumu:CauseDetail' cause.slug %}" class="text-decoration-none text-success">
-                    {{ cause.title }}</a>
+                    {{ cause.title|highlight_search:query }}</a>
                 </h2>
                 <p class="card-text">
-                    {{ cause.content | safe | linebreaks | truncatewords:20 }}
+                    {{ cause.content|highlight_search:query | safe | linebreaks | truncatewords:20 }}
                 </p>
             {% endfor %}
         {% endif %}

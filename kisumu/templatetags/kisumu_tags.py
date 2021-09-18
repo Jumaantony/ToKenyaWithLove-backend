@@ -38,7 +38,7 @@ def get_most_commented_posts(count=3):
     ).order_by('-total_comments')[:count]
 
 
-@register.filter(is_safe=True)
+@register.filter()
 def highlight_search(text, query):
-    highlighted = text.replace(query, '<strong style="color: red">{}</strong>'.format(query))
-    return mark_safe(highlighted)
+    highlighted = f'<span style="color:yellow;" {{ query }} </span>'
+    return text.replace(highlighted, query)
