@@ -24,6 +24,9 @@ urlpatterns = [
     # app url
     path('', include('kisumu.urls', namespace='kisumu')),
 
+    # pwa urls
+    path('', include('pwa.urls')),
+
     # ckeditor path
     path('ckeditor', include('ckeditor_uploader.urls')),
 
