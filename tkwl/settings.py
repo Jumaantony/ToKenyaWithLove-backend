@@ -226,19 +226,19 @@ PWA_APP_START_URL = '/'
 PWA_APP_STATUS_BAR_COLOR = 'default'
 PWA_APP_ICONS = [
     {
-        'src': 'static/images/logo.png',
+        'src': 'static/images/icon.jpeg',
         'sizes': '160x160'
     }
 ]
 PWA_APP_ICONS_APPLE = [
     {
-        'src': 'static/images/logo.png',
+        'src': 'static/images/icon.jpeg',
         'sizes': '160x160'
     }
 ]
 PWA_APP_SPLASH_SCREEN = [
     {
-        'src': 'static/images/logo.png',
+        'src': 'static/images/icon.jpeg',
         'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
     }
 ]
@@ -337,7 +337,7 @@ PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js'
 
 # authentication backends
 AUTHENTICATION_BACKENDS = (
-    # django authentication backends
+    # django authentication backend
     'django.contrib.auth.backends.ModelBackend',
 )
 
